@@ -39,7 +39,7 @@ def predictRoute():
         decodeImage(image, clApp.filename)
 
        
-        os.system("cd yolov7/ && python detect.py --weights my_model.pt  --source ../data/inputImage.jpg")
+        os.system("cd yolov7/ && python detect.py --weights my_model.pt  --source ../data/*.jpg")
 
         opencodedbase64 = encodeImageIntoBase64("yolov7/runs/detect/exp/inputImage.jpg")
         result = {"image": opencodedbase64.decode('utf-8')}
@@ -59,5 +59,5 @@ def predictRoute():
 
 if __name__ == "__main__":
     clApp = ClientApp()
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="127.0.0.1", port=8000)
     
